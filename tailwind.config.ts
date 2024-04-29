@@ -77,6 +77,10 @@ const config = {
         "accordion-up": "accordion-up 0.2s ease-out",
         "caret-blink": "caret-blink 1.25s ease-out infinite"
       },
+      card: {
+        DEFAULT: "hsl(var(--card))",
+        foreground: "hsl(var(--card-foreground))",
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],

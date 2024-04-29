@@ -8,18 +8,19 @@ import { getToken } from 'next-auth/jwt'
 export async function middleware(request: NextRequest) {
     const token=await getToken({req:request})
     const url=request.nextUrl
-    console.log("heelo",token , "url", url);
 
     if (
       token &&
       (url.pathname.startsWith("/sign-in") ||
         url.pathname.startsWith("/sign-up") ||
-        url.pathname.startsWith("/verify-code") ||
-        url.pathname.startsWith("/"))
-    ) {
+        url.pathname.startsWith("/verify-code"))||
+        url.pathname.startsWith("/home")
+      ) {
       return NextResponse.redirect(new URL("/dashboard", request.url));
     }
-      //  return NextResponse.redirect(new URL('/sign-in', request.url))
+    if (!token && url.pathname.startsWith('/dashboard')) {
+      return NextResponse.redirect(new URL('/sign-in', request.url));
+    }
 }
  
 // See "Matching Paths" below to learn more

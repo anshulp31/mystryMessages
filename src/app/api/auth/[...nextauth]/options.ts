@@ -49,13 +49,15 @@ export const authOptions: NextAuthOptions = {
   ],
   callbacks: {
     async jwt({ token, user }) {
-      console.log("token" , token );
-      console.log("USer" , user);
-      token._id = user._id;
-      token.username = user.username;
-      token.isVerified = user.isVerified;
-      token.isAcceptingMessage = user.isAcceptingMessage;
-      console.log("last ",token)
+      
+    
+      if(user){
+        token._id = user._id?.toString();
+        token.username = user.username;
+        token.isVerified = user.isVerified;
+        token.isAcceptingMessage = user.isAcceptingMessage;
+      }
+     
       return token;
     },
     async session({ session, token }) {

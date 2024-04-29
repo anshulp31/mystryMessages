@@ -1,9 +1,7 @@
 'use client'
+import dayjs from 'dayjs'
 import {
     Card,
-    CardContent,
-    CardDescription,
-    CardFooter,
     CardHeader,
     CardTitle,
   } from "@/components/ui/card"
@@ -43,9 +41,11 @@ const MessageCard = ({message,onMessageDelete}:MessageProp) => {
         onMessageDelete(message._id);
     }
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle>Card Title</CardTitle>
+    <Card className="card-bordered">
+      
+      <CardHeader >
+        <div className="flex flex-row justify-between items-center">
+        <CardTitle>{message.content}</CardTitle>
         <AlertDialog>
           <AlertDialogTrigger asChild>
             <Button variant="destructive"><X className="w-5 h-5"></X></Button>
@@ -64,11 +64,12 @@ const MessageCard = ({message,onMessageDelete}:MessageProp) => {
             </AlertDialogFooter>
           </AlertDialogContent>
         </AlertDialog>
-        <CardDescription>Card Description</CardDescription>
+        </div>
+        <div className="text-sm">
+          {dayjs(message.createdAt).format('MMM D, YYYY h:mm A')}
+        </div>
       </CardHeader>
-      <CardContent>
-        <p>Card Content</p>
-      </CardContent>
+      
     </Card>
   );
 }

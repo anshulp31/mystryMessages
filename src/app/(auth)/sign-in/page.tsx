@@ -53,7 +53,7 @@ const SignIn = () => {
           description:'Start Your anounomous adven',
           variant:'default'
         })
-        router.replace('/dashboard');
+        router.push('/dashboard');
       }
   }
 
