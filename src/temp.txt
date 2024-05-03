@@ -5,3 +5,6 @@ Zod: This is used for extra valdidation of users before communicate with databas
 React-Email:With the help of this library we can create templates of emails
 
 NextAuth: For all authentication support
+
+//Frontend
+

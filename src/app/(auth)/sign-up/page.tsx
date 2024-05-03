@@ -112,17 +112,17 @@ const page = () => {
                 </FormItem>
               )}
             />
-            {isUsernameCheck && <Loader2 className="animate-spin"/> }
+            {isUsernameCheck && <Loader2 className="animate-spin" />}
             {!isUsernameCheck && usernameMessage && (
-                    <p
-                      className={`text-sm mt-0 ${
-                        usernameMessage === 'Username is available'
-                          ? 'text-green-500'
-                          : 'text-red-500'
-                      }`}
-                    >
-                      {usernameMessage}
-                    </p>
+              <p
+                className={`text-sm mt-0 ${
+                  usernameMessage === "Username is available"
+                    ? "text-green-500"
+                    : "text-red-500"
+                }`}
+              >
+                {usernameMessage}
+              </p>
             )}
             <FormField
               control={form.control}
@@ -151,21 +151,21 @@ const page = () => {
               )}
             />
             <Button type="submit" className="w-full">
-              {isSubmitting ?(
+              {isSubmitting ? (
                 <>
-                  <Loader2 className="animate-spin mr-2 h-4 w-4"/>
+                  <Loader2 className="animate-spin mr-2 h-4 w-4" />
                   Please wait
                 </>
-              ):(
-                'Sign Up'
+              ) : (
+                "Sign Up"
               )}
             </Button>
           </form>
         </Form>
         <div className="text-center text-lg">
-          Already a member? 
-          <Link href={'/sign-in'} className="text-blue-700 ">
-               <span> Sign in</span>
+          Already a member?
+          <Link href={"/sign-in"} className="text-blue-700 ">
+            <span> Sign in</span>
           </Link>
         </div>
       </div>
