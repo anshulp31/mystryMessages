@@ -35,6 +35,7 @@ export default function Home() {
           plugins={[Autoplay({ delay: 2000 })]}
           className="w-full max-w-lg md:max-w-xl"
         >
+          
           <CarouselContent>
             {message.map((message, index) => (
               <CarouselItem key={index} className="p-4">
@@ -60,7 +61,7 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="text-center p-4 md:p-6 bg-gray-900 text-white">
-        © 2023 True Feedback. All rights reserved.
+        © 2024 Mystery Messages. All rights reserved.
       </footer>
     </>
   );

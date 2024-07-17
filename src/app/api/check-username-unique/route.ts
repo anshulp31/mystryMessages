@@ -12,7 +12,7 @@ export async function GET(request:Request) {
   await dbConnect();
   try {
     //this will give a current url
-    const {searchParams}=new URL(request.url)
+    const {searchParams}=new URL(request.url);
     const queryParam={
         username:searchParams.get("username")
     }
@@ -27,7 +27,7 @@ export async function GET(request:Request) {
                 message:"Invalid Param query"
             },{status:501}
         )
-        
+         
     }
     const {username} = result.data; 
     const existingUserVerified=await UserModel.findOne
@@ -49,7 +49,7 @@ export async function GET(request:Request) {
     )
 
   } catch (error) {
-    console.log("Erroe while check username unique", error);
+    console.log("Error while check username unique", error);
     return Response.json(
       { success: false, message: "error checking usenmae" },
       { status: 500 }
